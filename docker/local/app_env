@@ -1,0 +1,6 @@
+DNSDOCK_ALIAS=todo.docker
+PG_DATABASE=todo
+PG_HOST=db
+PG_PASSWORD=todo
+PG_ROOT_PASSWORD=todo
+PG_USER=todo

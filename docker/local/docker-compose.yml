@@ -1,0 +1,30 @@
+version: '3'
+services:
+  app:
+    build:
+      context: ../../
+      dockerfile: docker/local/Dockerfile
+    env_file:
+      - app_env
+      - app_env.secrets
+    depends_on:
+      - db
+    volumes:
+      - app_sources:/app
+    tty: true
+    stdin_open: true
+
+  db:
+    image: postgres:11.2
+    env_file:
+      - db_env
+    volumes:
+      - db_data:/var/lib/postgresql
+
+volumes:
+  db_data:
+  app_sources:
+    driver_opts:
+      type: none
+      device: "${PWD}/../../"
+      o: bind
