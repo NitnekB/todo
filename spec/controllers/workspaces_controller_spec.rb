@@ -85,10 +85,9 @@ RSpec.describe WorkspacesController, type: :controller do
         expect(workspace.label).to eq "Personal"
       end
 
-      it "renders a JSON response with the workspace" do
+      it "updates the workspace" do
         put :update, params: { id: workspace.to_param, workspace: valid_attributes }, session: valid_session
-        expect(response).to have_http_status(:ok)
-        expect(response.content_type).to eq('application/json')
+        expect(response).to have_http_status(:no_content)
       end
     end
 

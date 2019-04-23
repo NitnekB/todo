@@ -83,7 +83,7 @@ RSpec.describe "Projects", type: :request do
     context "when request attributes are valid" do
       before { post "/workspaces/#{workspace_id}/projects", params: { project: valid_attributes } }
 
-      it 'returns status code 201' do
+      it "returns status code 201" do
         expect(response).to have_http_status(201)
       end
     end

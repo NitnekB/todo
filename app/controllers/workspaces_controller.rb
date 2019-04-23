@@ -27,7 +27,7 @@ class WorkspacesController < ApplicationController
   # PATCH/PUT /workspaces/1
   def update
     if @workspace.update(workspace_params)
-      render json: @workspace
+      render json: @workspace, status: :no_content
     else
       render json: @workspace.errors, status: :unprocessable_entity
     end

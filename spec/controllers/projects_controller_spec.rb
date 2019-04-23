@@ -70,7 +70,7 @@ RSpec.describe ProjectsController, type: :controller do
         expect(project.title).to eq "New title"
       end
 
-      it "renders a JSON response with the project" do
+      it "updates the project" do
         put :update, params: { workspace_id: workspace.id, id: project.to_param, project: valid_attributes }, session: valid_session
         expect(response).to have_http_status(:no_content)
       end
