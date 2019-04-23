@@ -2,6 +2,12 @@ require 'rails_helper'
 
 RSpec.describe WorkspacesController, type: :controller do
 
+  let(:workspace) { create(:workspace) }
+
+  before(:each) do
+    workspace
+  end
+
   # This should return the minimal set of attributes required to create a valid
   # Workspace. As you add validations to Workspace, be sure to
   # adjust the attributes here as well.
@@ -28,7 +34,6 @@ RSpec.describe WorkspacesController, type: :controller do
 
   describe "GET #index" do
     it "returns a success response" do
-      workspace = Workspace.create! valid_attributes
       get :index, params: {}, session: valid_session
       expect(response).to be_successful
     end
@@ -36,7 +41,6 @@ RSpec.describe WorkspacesController, type: :controller do
 
   describe "GET #show" do
     it "returns a success response" do
-      workspace = Workspace.create! valid_attributes
       get :show, params: { id: workspace.to_param }, session: valid_session
       expect(response).to be_successful
     end
@@ -60,7 +64,6 @@ RSpec.describe WorkspacesController, type: :controller do
 
     context "with invalid params" do
       it "renders a JSON response with errors for the new workspace" do
-
         post :create, params: { workspace: invalid_attributes }, session: valid_session
         expect(response).to have_http_status(:unprocessable_entity)
         expect(response.content_type).to eq('application/json')
@@ -77,25 +80,19 @@ RSpec.describe WorkspacesController, type: :controller do
       }
 
       it "updates the requested workspace" do
-        workspace = Workspace.create! valid_attributes
         put :update, params: { id: workspace.to_param, workspace: new_attributes }, session: valid_session
         workspace.reload
         expect(workspace.label).to eq "Personal"
       end
 
-      it "renders a JSON response with the workspace" do
-        workspace = Workspace.create! valid_attributes
-
+      it "updates the workspace" do
         put :update, params: { id: workspace.to_param, workspace: valid_attributes }, session: valid_session
-        expect(response).to have_http_status(:ok)
-        expect(response.content_type).to eq('application/json')
+        expect(response).to have_http_status(:no_content)
       end
     end
 
     context "with invalid params" do
       it "renders a JSON response with errors for the workspace" do
-        workspace = Workspace.create! valid_attributes
-
         put :update, params: { id: workspace.to_param, workspace: invalid_attributes }, session: valid_session
         expect(response).to have_http_status(:unprocessable_entity)
         expect(response.content_type).to eq('application/json')
@@ -105,7 +102,6 @@ RSpec.describe WorkspacesController, type: :controller do
 
   describe "DELETE #destroy" do
     it "destroys the requested workspace" do
-      workspace = Workspace.create! valid_attributes
       expect {
         delete :destroy, params: { id: workspace.to_param }, session: valid_session
       }.to change(Workspace, :count).by(-1)
