@@ -26,7 +26,7 @@ class ProjectsController < ApplicationController
   # PATCH/PUT /projects/1
   def update
     if @project.update(project_params)
-      json_response(@project)
+      json_response(@project, :no_content)
     else
       json_response(@project, :unprocessable_entity)
     end
