@@ -5,12 +5,12 @@ class WorkspacesController < ApplicationController
   def index
     @workspaces = Workspace.all
 
-    render json: @workspaces
+    json_response(@workspaces)
   end
 
   # GET /workspaces/1
   def show
-    render json: @workspace
+    json_response(@workspace)
   end
 
   # POST /workspaces
@@ -18,18 +18,18 @@ class WorkspacesController < ApplicationController
     @workspace = Workspace.new(workspace_params)
 
     if @workspace.save
-      render json: @workspace, status: :created, location: @workspace
+      json_response(@workspace, :created, @workspace)
     else
-      render json: @workspace.errors, status: :unprocessable_entity
+      json_response(@workspace.errors, :unprocessable_entity)
     end
   end
 
   # PATCH/PUT /workspaces/1
   def update
     if @workspace.update(workspace_params)
-      render json: @workspace, status: :no_content
+      json_response(@workspace, :no_content)
     else
-      render json: @workspace.errors, status: :unprocessable_entity
+      json_response(@workspace.errors, :unprocessable_entity)
     end
   end
 

@@ -14,12 +14,12 @@ class ProjectsController < ApplicationController
 
   # POST /projects
   def create
-    @workspace.projects.create!(project_params)
+    @workspace.projects.new(project_params)
 
     if @workspace.save
-      json_response(@workspace, :created)
+      json_response(@workspace, :created, @workspace)
     else
-      json_response(@workspace, :unprocessable_entity)
+      json_response(@workspace.errors, :unprocessable_entity)
     end
   end
 
@@ -28,7 +28,7 @@ class ProjectsController < ApplicationController
     if @project.update(project_params)
       json_response(@project, :no_content)
     else
-      json_response(@project, :unprocessable_entity)
+      json_response(@project.errors, :unprocessable_entity)
     end
   end
 

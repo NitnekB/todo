@@ -76,7 +76,7 @@ RSpec.describe "Projects", type: :request do
 
     let(:invalid_attributes) {
       {
-        title: nil
+        title: "NO"
       }
     }
 
@@ -96,7 +96,7 @@ RSpec.describe "Projects", type: :request do
       end
 
       it "returns a failure message" do
-        expect(response.body).to match(/Validation failed: Title can't be blank/)
+        expect(response.body).to match(/is invalid/)
       end
     end
   end
