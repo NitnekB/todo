@@ -15,3 +15,6 @@ All notable changes to this project will be documented in this file.
 
 - Workspaces CRUD API
 - Projects CRUD API
+- Configure Docker for _local_ and _test_ environments
+- Add conituous integration with `CircleCI`
+- Setup Rspec with _database-cleaner_ and _Factory Bot_
