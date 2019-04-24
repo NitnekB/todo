@@ -8,9 +8,9 @@ Small CRUD app using _Rails_ API, _GraphQl_ and _Docker_ to manage Todo list and
 - [x] Use and setup Rspec (use _database-cleaner_)
 - [x] Workspaces CRUD
 - [x] Projects CRUD that belongs to Workspaces
+- [x] Add continuous integration system (Circle CI?)
 - [ ] Add seeds
 - [ ] Add _Faker_ to generate tests and seeds
-- [ ] Add continuous integration system (Circle CI?)
 - [ ] Tasks CRUD that has many Projects
 - [ ] Add subtasks CRUD?
 - [ ] Manage and complete Todo _tasks_
