@@ -3,4 +3,4 @@ PG_DATABASE=todo_test
 PG_HOST=db
 PG_PASSWORD=todo
 PG_ROOT_PASSWORD=todo
-PG_USER=todo
+PG_USER=postgres
