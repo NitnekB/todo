@@ -17,8 +17,8 @@ projects = Project.create([
 ])
 
 Task.create([
-  { title: Faker::Lorem.sentence, content: Faker::Lorem.sentences, state: "TODO", project_id: projects.first.id },
-  { title: Faker::Lorem.sentence, content: Faker::Lorem.sentences, state: "TODO", project_id: projects.first.id },
-  { title: Faker::Lorem.sentence, content: Faker::Lorem.sentences, state: "TODO", project_id: projects.last.id },
-  { title: Faker::Lorem.sentence, content: Faker::Lorem.sentences, state: "TODO", project_id: projects.last.id }
+  { title: Faker::Lorem.sentence, content: Faker::Lorem.sentences, state: Task::STATES.sample, project_id: projects.first.id },
+  { title: Faker::Lorem.sentence, content: Faker::Lorem.sentences, state: Task::STATES.sample, project_id: projects.first.id },
+  { title: Faker::Lorem.sentence, content: Faker::Lorem.sentences, state: Task::STATES.sample, project_id: projects.last.id },
+  { title: Faker::Lorem.sentence, content: Faker::Lorem.sentences, state: Task::STATES.sample, project_id: projects.last.id }
 ])

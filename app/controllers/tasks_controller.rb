@@ -37,6 +37,10 @@ class TasksController < ApplicationController
     @task.destroy
   end
 
+  def states
+    json_response(Task::STATES)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task

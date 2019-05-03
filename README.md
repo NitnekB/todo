@@ -12,12 +12,12 @@ Small CRUD app using _Rails_ API and _Docker_ to manage Todo list and export the
 - [x] Add seeds
 - [x] Add _Faker_ to generate tests and seeds
 - [x] Tasks CRUD that has many Projects
+- [x] Handle _tasks_ states
 - [ ] Automatically set `general` project for unassigned tasks
 - [ ] Duplicate a task on another project
 - [ ] Move task on another project
 - [ ] Add subtasks CRUD?
 - [ ] Use UUID everywhere!!!
-- [ ] Manage and complete Todo _tasks_
 - [ ] Export tracking day by day (by workspace)
 - [ ] ... (see later for futher improvement)
 
