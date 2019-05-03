@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   resources :tasks
+
+  get "/task_states", to: "tasks#states"
+
   resources :workspaces do
     resources :projects
   end

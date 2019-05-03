@@ -123,4 +123,21 @@ RSpec.describe "Tasks", type: :request do
       expect(response).to have_http_status(204)
     end
   end
+
+  describe "GET /task_states" do
+    before { get "/task_states" }
+
+    it "returns a status code 200" do
+      expect(response).to have_http_status(200)
+    end
+
+    it "returns an array of STATES" do
+      expect(response.body).to eq(Task::STATES.to_json)
+    end
+
+    it "returns the 3 existing states as list for task" do
+      expect(json).not_to be_empty
+      expect(json.size).to eq(3)
+    end
+  end
 end

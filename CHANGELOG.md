@@ -16,6 +16,8 @@ All notable changes to this project will be documented in this file.
 - Tasks CRUD API
 - Faker
 - Seed
+- Handle states for task
+- GET `task_states` route
 
 ### Changed
 ### Fixed

@@ -17,6 +17,23 @@ RSpec.describe Task, type: :model do
         it "task" do
           assert task.valid?
         end
+
+        describe "STATES array" do
+          it "if task state equal TODO" do
+            task.state = "TODO"
+            assert task.valid?
+          end
+
+          it "if task state equal DOING" do
+            task.state = "DOING"
+            assert task.valid?
+          end
+
+          it "if task state equal DONE" do
+            task.state = "DONE"
+            assert task.valid?
+          end
+        end
       end
       
       context "invalid" do
@@ -32,6 +49,11 @@ RSpec.describe Task, type: :model do
 
         it "without state" do
           task.state = nil
+          refute task.valid?
+        end
+
+        it "with state which is not in the STATES array" do
+          task.state = "TO_ESTIMATE"
           refute task.valid?
         end
       end
