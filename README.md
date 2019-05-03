@@ -76,10 +76,10 @@ Then, build the project
 docker/local/dc build
 ```
 
-Create the database and play migrations
+Create the database, play migrations and seed
 
 ```bash
-docker/local/dc run --rm app rake db:create db:migrate
+docker/local/dc run --rm app rake db:create db:migrate db:seed
 ```
 
 Finally, launch the app!
