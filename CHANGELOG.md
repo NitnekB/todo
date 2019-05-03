@@ -9,6 +9,18 @@ All notable changes to this project will be documented in this file.
 ### Fixed
 ### Removed
 
+## [Unreleased]
+
+### Added
+
+- Tasks CRUD API
+- Faker
+- Seed
+
+### Changed
+### Fixed
+### Removed
+
 ## [0.1.0] - 2019-04-23
 
 ### Added
