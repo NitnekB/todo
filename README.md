@@ -9,7 +9,7 @@ Small CRUD app using _Rails_ API and _Docker_ to manage Todo list and export the
 - [x] Workspaces CRUD
 - [x] Projects CRUD that belongs to Workspaces
 - [x] Add continuous integration system (Circle CI?)
-- [ ] Add seeds
+- [x] Add seeds
 - [x] Add _Faker_ to generate tests and seeds
 - [x] Tasks CRUD that has many Projects
 - [ ] Automatically set `general` project for unassigned tasks
