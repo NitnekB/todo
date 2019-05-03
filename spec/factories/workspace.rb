@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :workspace do
-    label { "Personal" }
-    description { "Personal workspace" }
-    context { "friends" }
+    label { Faker::Lorem.sentence }
+    description { Faker::Lorem.sentences }
+    context { Faker::Lorem.words }
     public { true }
   end
 end

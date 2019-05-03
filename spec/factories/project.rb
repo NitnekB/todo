@@ -1,7 +1,8 @@
 FactoryBot.define do
   factory :project do
-    title { "My Project" }
-    description { "This is my own project" }
+    title { Faker::Lorem.sentence }
+    description { Faker::Lorem.sentences }
+
     workspace
   end
 end
