@@ -6,7 +6,7 @@ RSpec.describe Project, type: :model do
 
     subject { project }
 
-    it "creates a new workspace entry" do
+    it "creates a new project entry" do
       expect{ project }.to change{ Project.count }.from(0).to(1)
     end
 
