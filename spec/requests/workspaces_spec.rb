@@ -44,8 +44,8 @@ RSpec.describe "Workspaces", type: :request do
     end
   end
 
-  # Test suite for PUT /workspaces/:workspace_id
-  describe "POST /workspaces/:workspace_id" do
+  # Test suite for POST /workspaces
+  describe "POST /workspaces" do
     let(:valid_attributes) {
       {
         label: "New awesome workspace",

@@ -11,6 +11,16 @@ All notable changes to this project will be documented in this file.
 ### Removed
 -->
 
+## [Unreleased]
+
+### Added
+
+- Handle default `general` project creation when creating new Workspace
+
+### Changed
+### Fixed
+### Removed
+
 ## [0.2.0] - 2019-05-04
 
 ### Added
