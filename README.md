@@ -18,6 +18,7 @@ Small CRUD app using _Rails_ API and _Docker_ to manage Todo list and export the
 - [ ] Move task on another project
 - [ ] Add subtasks CRUD?
 - [ ] Use UUID everywhere!!!
+- [ ] Add users and handle access permissions
 - [ ] Export tracking day by day (by workspace)
 - [ ] ... (see later for futher improvement)
 
