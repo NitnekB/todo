@@ -1,6 +1,6 @@
 # Todo App
 
-Small CRUD app using _Rails_ API, _GraphQl_ and _Docker_ to manage Todo list and export them by day as tracking.
+Small CRUD app using _Rails_ API and _Docker_ to manage Todo list and export them by day as tracking.
 
 ## Functionalities
 
@@ -9,11 +9,16 @@ Small CRUD app using _Rails_ API, _GraphQl_ and _Docker_ to manage Todo list and
 - [x] Workspaces CRUD
 - [x] Projects CRUD that belongs to Workspaces
 - [x] Add continuous integration system (Circle CI?)
-- [ ] Add seeds
-- [ ] Add _Faker_ to generate tests and seeds
-- [ ] Tasks CRUD that has many Projects
+- [x] Add seeds
+- [x] Add _Faker_ to generate tests and seeds
+- [x] Tasks CRUD that has many Projects
+- [x] Handle _tasks_ states
+- [ ] Automatically set `general` project for unassigned tasks
+- [ ] Duplicate a task on another project
+- [ ] Move task on another project
 - [ ] Add subtasks CRUD?
-- [ ] Manage and complete Todo _tasks_
+- [ ] Use UUID everywhere!!!
+- [ ] Add users and handle access permissions
 - [ ] Export tracking day by day (by workspace)
 - [ ] ... (see later for futher improvement)
 
@@ -72,10 +77,10 @@ Then, build the project
 docker/local/dc build
 ```
 
-Create the database and play migrations
+Create the database, play migrations and seed
 
 ```bash
-docker/local/dc run --rm app rake db:create db:migrate
+docker/local/dc run --rm app rake db:create db:migrate db:seed
 ```
 
 Finally, launch the app!
@@ -89,7 +94,7 @@ If you don't feel confortable with this, just move to specific directory and use
 
 ## Work with tests
 
-This project use [_Minitest_](https://github.com/seattlerb/minitest) cause we love it!
+This project use Rspec!
 
 Same here, setup the test app using _Docker_
 
@@ -107,7 +112,7 @@ Finally, launch the Test App!
 
 ```bash
 # -d to launch as deamon
-docker/test/dc run --rm -e "RAILS_ENV=test" app rake db:create db:migrate test
+docker/test/dc run --rm -e "RAILS_ENV=test" app rake db:create db:migrate rspec
 ```
 
 If like me, you prefer to test in compartment, just enter on the test container and launch command you want
@@ -117,5 +122,5 @@ If like me, you prefer to test in compartment, just enter on the test container 
 docker/test/dc run --rm app bash
 
 # In the container: Run specific file test
-rake test TEST="./test/model/workspaces_test.rb"
+rspec spec/models/workspace_spec.rb
 ```

@@ -5,3 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+workspaces = Workspace.create([
+  { label: "Private", description: Faker::Lorem.sentences, context: Faker::Lorem.words, public: false },
+  { label: "Personal", description: Faker::Lorem.sentences, context: Faker::Lorem.words, public: true }
+])
+
+projects = Project.create([
+  { title: Faker::Lorem.sentence, description: Faker::Lorem.sentences, workspace_id: workspaces.first.id },
+  { title: Faker::Lorem.sentence, description: Faker::Lorem.sentences, workspace_id: workspaces.last.id }
+])
+
+Task.create([
+  { title: Faker::Lorem.sentence, content: Faker::Lorem.sentences, state: Task::STATES.sample, project_id: projects.first.id },
+  { title: Faker::Lorem.sentence, content: Faker::Lorem.sentences, state: Task::STATES.sample, project_id: projects.first.id },
+  { title: Faker::Lorem.sentence, content: Faker::Lorem.sentences, state: Task::STATES.sample, project_id: projects.last.id },
+  { title: Faker::Lorem.sentence, content: Faker::Lorem.sentences, state: Task::STATES.sample, project_id: projects.last.id }
+])

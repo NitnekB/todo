@@ -2,12 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+<!--
 ## [Unreleased]
 
 ### Added
 ### Changed
 ### Fixed
 ### Removed
+-->
+
+## [0.2.0] - 2019-05-04
+
+### Added
+
+- Tasks CRUD API
+- Faker
+- Seed
+- Handle states for task
+- GET `task_states` route
 
 ## [0.1.0] - 2019-04-23
 
