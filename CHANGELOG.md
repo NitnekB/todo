@@ -2,14 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<!--
 ## [Unreleased]
 
 ### Added
 ### Changed
 ### Fixed
 ### Removed
+-->
 
-## [Unreleased]
+## [0.2.0] - 2019-05-04
 
 ### Added
 
@@ -18,10 +20,6 @@ All notable changes to this project will be documented in this file.
 - Seed
 - Handle states for task
 - GET `task_states` route
-
-### Changed
-### Fixed
-### Removed
 
 ## [0.1.0] - 2019-04-23
 
