@@ -2,12 +2,13 @@ require 'rails_helper'
 
 RSpec.describe Workspace, type: :model do
 
+  subject { workspace }
+
   describe "#create" do
     let(:workspace) { create(:workspace) }
-    subject { workspace }
 
-    it "creates a new workspace entry" do
-      expect{ workspace }.to change{ Workspace.count }.from(0).to(1)
+    it "creates a new workspace entry from factory" do
+      expect{ subject }.to change{ Workspace.count }.by(1)
     end
   end
 
@@ -16,39 +17,39 @@ RSpec.describe Workspace, type: :model do
 
     context "valid" do
       it "workspace" do
-        assert workspace.valid?
+        expect(subject).to be_valid
       end
 
       it "without description" do
         workspace.description = nil
-        assert workspace.valid?
+        expect(subject).to be_valid
       end
     end
   
     context "invalid" do
       it "without label" do
         workspace.label = nil
-        refute workspace.valid?
+        expect(subject).not_to be_valid
       end
     
       it "with label length inferior to 3 characters" do
         workspace.label = "GO"
-        refute workspace.valid?
+        expect(subject).not_to be_valid
       end
   
       it "with description < 15 characters" do
         workspace.description = "N" * 14
-        refute workspace.valid?
+        expect(subject).not_to be_valid
       end
 
       it "with description > 500 characters" do
         workspace.description = "N" * 501
-        refute workspace.valid?
+        expect(subject).not_to be_valid
       end
 
       it "with public attribut with non boolean type" do
         workspace.public = nil
-        refute workspace.valid?
+        expect(subject).not_to be_valid
       end
     end
   end
