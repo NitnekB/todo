@@ -23,7 +23,7 @@ class WorkspacesController < ApplicationController
       end
     end
   rescue => e
-    json_response(e, :unprocessable_entity)
+    json_response(e.message, :unprocessable_entity)
   end
 
   # PATCH/PUT /workspaces/1

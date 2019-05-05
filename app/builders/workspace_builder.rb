@@ -2,13 +2,18 @@ class WorkspaceBuilder
 
   def initialize(params)
     @workspace = Workspace.new
-    set_label(params[:label])
-    set_description(params[:description])
-    set_context(params[:context])
-    set_public(params[:public])
+    @params = params
+    build
   end
 
-  attr_reader :workspace
+  def build
+    set_label(self.params[:label])
+    set_description(self.params[:description])
+    set_context(self.params[:context])
+    set_public(self.params[:public])
+  end
+
+  attr_reader :workspace, :params
 
   def workspace
     @workspace
