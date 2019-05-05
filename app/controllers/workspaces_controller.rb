@@ -15,13 +15,15 @@ class WorkspacesController < ApplicationController
 
   # POST /workspaces
   def create
-    @workspace = Workspace.new(workspace_params)
+    @workspace_builder = WorkspaceBuilder.new(workspace_params.to_h)
 
-    if @workspace.save
-      json_response(@workspace, :created, @workspace)
-    else
-      json_response(@workspace.errors, :unprocessable_entity)
+    if @workspace_builder.workspace.save
+      if @workspace_builder.set_default_project(@workspace_builder.workspace.id).save
+        json_response(@workspace, :created, @workspace_builder.workspace)
+      end
     end
+  rescue => e
+    json_response(e.message, :unprocessable_entity)
   end
 
   # PATCH/PUT /workspaces/1

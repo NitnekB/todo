@@ -15,7 +15,6 @@ RSpec.describe WorkspacesController, type: :controller do
     {
       label: "Private",
       description: "Private workspace",
-      context: "Pro",
       public: false
     }
   }
